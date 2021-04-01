@@ -5,11 +5,14 @@ before_action :ensure_correct_user, only: [:update,:edit,:destroy]
     @book = Book.find(params[:id])
     @book_new=Book.new
     @user=@book.user
+    @post_comment = PostComment.new
   end
 
   def index
     @books = Book.all
     @book=Book.new
+    @user=@book.user
+    
   end
 
   def create
