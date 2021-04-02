@@ -1,5 +1,13 @@
 class RelationshipsController < ApplicationController
-  
+
+  def follower
+    @user = current_user
+  end
+
+  def following
+    @user = current_user
+  end
+
   def follow
    current_user.follow(params[:id])
    redirect_to request.referer
