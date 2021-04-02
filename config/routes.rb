@@ -8,9 +8,10 @@ Rails.application.routes.draw do
    resource :favorites, only: [:create, :destroy]
   end
   
-  
-  
   root 'homes#top'
   get 'home/about' => 'homes#about'
+
+  post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする
+  post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # フォロー外す
 
 end
