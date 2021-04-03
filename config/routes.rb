@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
+  get 'search/search'
   devise_for :users
 
   resources :users,only: [:show,:index,:edit,:update] 
-      get 'searchs/search' => 'searchs#search'
 
   
   resources :books do
@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   get 'relationships/follower' => 'relationships#follower'
   get 'relationships/following' => 'relationships#following'
 
+  get '/search', to: 'search#search'
 end
